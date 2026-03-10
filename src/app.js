@@ -7,10 +7,13 @@ dotenv.config();
 
 const app = express();
 
+// ✅ Explicit CORS configuration for your frontend
 app.use(cors({
   origin: ['http://localhost:3000', 'https://themultiverse.build'],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
+  credentials: true,
+  optionsSuccessStatus: 200
 }));
 
 app.use(express.json({ limit: '50mb' }));
